@@ -11,12 +11,22 @@
         }
     </style>
 <script>
-    function submitValue(){
 
-        let x= document.getElementById("message").value;
+    async function submitValue() {
+    let x = document.getElementById("message").value;
 
-        alert(x);
-    }
+    const response = await fetch("http://127.0.0.1:5000/getEmail", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email: x })
+    });
+
+    const data = await response.json();
+    alert("Classification: " + data.classification);
+}
+
 
     function clearInput(){
        let x= document.getElementById("message");
