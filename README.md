@@ -20,7 +20,7 @@ The goal is to streamline email management for employees, customer service repre
 ### 1. Clone or Download the Repository
 ```powershell
 git clone https://github.com/martin2000002/Email-Classifier.git
-cd group10_project
+cd Email-Classifier
 ```
 
 ### 2. Set Up the Environment
@@ -48,7 +48,7 @@ Run `./setup.ps1` (Windows) or `./setup.sh` (Mac/Linux) and select an option:
 1. **Start Backend API:** Launches the server in a new terminal.
 2. **Open Frontend:** Opens the web interface in your browser.
 3. **Retrain Model:** Re-runs training (optional).
-4. **Run Tests:** Executes the test suite.
+4. **Run Tests:** Executes the test suite (optional).
 
 ### Option B: Manual Commands
 
