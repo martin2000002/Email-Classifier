@@ -19,7 +19,7 @@ The goal is to streamline email management for employees, customer service repre
 
 ### 1. Clone or Download the Repository
 ```powershell
-git clone <repository-url>
+git clone https://github.com/martin2000002/Email-Classifier.git
 cd group10_project
 ```
 
