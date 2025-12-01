@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Email Classifier</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <main class="main">
+                <header class="header">
+                <h1>Email Classifier</h1>
+                <p>Classifies English emails into: Action Request, Information, Complaint, Urgent, Spam.</p>
+                </header>
+
+                <section class="card">
+                <label for="message" class="label">Paste your email text</label>
+                <textarea id="message" class="textarea" placeholder="Type or paste your email here..." rows="8"></textarea>
+                <div class="actions">
+                    <button id="classifyBtn" class="btn primary">Classify</button>
+                    <button id="clearBtn" class="btn">Clear</button>
+                </div>
+                <div id="status" class="status" aria-live="polite"></div>
+                </section>
+
+                <section id="results" class="card hidden">
+                <h2 class="subtitle">Prediction</h2>
+                <div id="predicted" class="predicted"></div>
+                <div id="probs" class="probs"></div>
+                </section>
+            </main>
+
+            <footer class="footer">
+                <span>Group 10 • Martín Montero & Sakash Khanna </span>
+            </footer>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
