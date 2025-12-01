@@ -29,50 +29,73 @@ We provide a setup script to create a virtual environment and install dependenci
 **Windows (PowerShell):**
 ```powershell
 ./setup.ps1
-./venv/Scripts/activate
 ```
 
 **Linux/Mac:**
 ```bash
 chmod +x setup.sh
 ./setup.sh
+```
+
+---
+
+## How to Run the Program
+
+You can run everything using the **interactive menu** that appears after running the setup script above, or use the manual commands below.
+
+### Option A: Interactive Menu (Recommended)
+Run `./setup.ps1` (Windows) or `./setup.sh` (Mac/Linux) and select an option:
+1. **Start Backend API:** Launches the server in a new terminal.
+2. **Open Frontend:** Opens the web interface in your browser.
+3. **Retrain Model:** Re-runs training (optional).
+4. **Run Tests:** Executes the test suite.
+
+### Option B: Manual Commands
+
+#### 0. Activate Virtual Environment
+**Windows:**
+```powershell
+.\venv\Scripts\activate
+```
+**Mac/Linux:**
+```bash
 source venv/bin/activate
 ```
 
-## How to Run the Program and Reproduce Results
-
-### 1. Generate the Dataset (Optional)
-If you want to regenerate the training data (requires an OpenAI API Key in `data/.env`):
-```powershell
-# Create .env file with OPENAI_API_KEY=sk-...
+#### 1. Generate the Dataset (Optional)
+Regenerate training data (requires `OPENAI_API_KEY` in `data/.env`).
+```bash
 cd data
 python generate_dataset.py
 cd ..
 ```
-*Note: The dataset is already included.*
+*Note: A pre-generated dataset is already included.*
 
-### 2. Train the Model
-Train the Logistic Regression model using the dataset. This script performs cross-validation and saves the best model to `code/backend/model.joblib`.
-```powershell
-python "code/backend/train.py" --no-plot
+#### 2. Train the Model (Optional)
+Retrain the model using cross-validation.
+```bash
+cd code/backend
+python train.py --no-plot
 ```
-*Remove `--no-plot` to see the interactive performance heatmaps.*
+*Remove `--no-plot` to see interactive heatmaps.*
 
-### 3. Start the Backend API
-Launch the FastAPI server to serve predictions.
-```powershell
-python "code/backend/main.py"
+#### 3. Start the Backend API
+Launch the FastAPI server.
+```bash
+cd code/backend
+python -m uvicorn main:app --reload
 ```
 The API will run at `http://127.0.0.1:8000`.
 
-### 4. Run Tests
-Verify that everything is working correctly by running the test suite:
-```powershell
+#### 4. Run Tests (Optional)
+Verify the system is working.
+```bash
+# Run from project root
 pytest -q
 ```
 
-### 5. Launch the Frontend
-Simply open the `code/frontend/index.html` file in your web browser.
+#### 5. Launch the Frontend
+Open `code/frontend/index.html` in your web browser.
 - Enter an email text.
 - Click **Classify**.
 - View the predicted category and confidence scores.
